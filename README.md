@@ -1,36 +1,178 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 🎓 Student Management System
 
-## Getting Started
+A simple full-stack Student Management System built with **Next.js (App Router)**, **MySQL**, and **Tailwind CSS**.  
+This project demonstrates basic CRUD operations (Create, Read, Update, Delete) with a REST API connected to a database.
 
-First, run the development server:
+---
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## 🚀 Features
+
+- Add new students
+- View all students in a table
+- Update student details
+- Delete student records
+- Real-time UI updates after database changes
+- Clean and responsive UI using Tailwind CSS
+
+---
+
+## 🛠️ Tech Stack
+
+- **Frontend:** Next.js (React, App Router)
+- **Backend:** Next.js API Routes
+- **Database:** MySQL (XAMPP / Local server)
+- **Styling:** Tailwind CSS
+- **Language:** TypeScript
+
+---
+
+## 📁 Project Structure
+
+```
+app/
+├── page.tsx
+├── api/
+│   └── students/
+│       ├── route.ts
+│       └── [id]/
+│           └── route.ts
+
+components/
+├── StudentForm.tsx
+├── StudentTable.tsx
+└── UpdateStudentForm.tsx
+
+lib/
+└── db.ts
+
+types/
+└── index.ts
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## ⚙️ Setup Instructions
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 1. Clone the repository
 
-## Learn More
+```bash
+git clone https://github.com/jenitlalshakya/student-management-system.git
+cd student-management-system
+```
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 2. Install dependencies
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+Install pnpm if not already installed:
 
-## Deploy on Vercel
+```bash
+npm install -g pnpm
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Then install project dependencies:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+pnpm install
+```
+
+---
+
+### 3. Setup MySQL database (XAMPP)
+
+Create a database:
+
+```sql
+CREATE DATABASE student_db;
+
+USE student_db;
+
+CREATE TABLE student_records (
+  id INT AUTO_INCREMENT PRIMARY KEY,
+  name VARCHAR(100) NOT NULL,
+  faculty VARCHAR(100) NOT NULL,
+  joining_year YEAR NOT NULL
+);
+```
+
+---
+
+### 4. Configure environment variables
+
+Create a `.env` file:
+
+```env
+DB_HOST=localhost
+DB_USER=root
+DB_PASSWORD=
+DB_NAME=student_db
+```
+
+---
+
+### 5. Run the project
+
+```bash
+pnpm run dev
+```
+
+Open:
+
+```
+http://localhost:3000
+```
+
+---
+
+## 📌 API Endpoints
+
+### Students
+
+* `GET /api/students` → Get all students
+* `POST /api/students` → Add student
+
+### Single Student
+
+* `PUT /api/students/[id]` → Update student
+* `DELETE /api/students/[id]` → Delete student
+
+---
+
+## 🧠 Learning Purpose
+
+This project was built to practice:
+
+* Next.js API routes
+* MySQL integration
+* CRUD operations
+* State management in React
+* Form handling
+* Component-based architecture
+
+---
+
+## 📸 Screenshots
+
+(Add screenshots here if available)
+
+---
+
+## 📌 Future Improvements
+
+* Add authentication (login system)
+* Add pagination & search
+* Add form validation (Zod / React Hook Form)
+* Deploy on Vercel + cloud database
+* Improve UI/UX with animations
+
+---
+
+## 👨‍💻 Author
+
+Built by **Jenit Lal Shakya**
+
+---
+
+## 📜 License
+
+This project is open-source and free to use for learning purposes.
