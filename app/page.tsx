@@ -5,6 +5,7 @@ import StudentForm from "@/components/StudentForm";
 import StudentTable from "@/components/StudentTable";
 import UpdateStudentForm from "@/components/UpdateStudentForm";
 import { Student } from "@/types";
+import Footer from "@/components/Footer";
 
 const Home = () => {
   const [students, setStudents] = useState<Student[]>([]);
@@ -136,36 +137,36 @@ const Home = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 py-10 px-4 text-black">
-      <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-lg p-8">
-        <h1 className="text-4xl font-bold text-center text-blue-600 mb-8">
-          Student Management System
-        </h1>
-
-        {!editingStudentId && (
-          <StudentForm
-            form={form}
-            onChange={handleChange}
-            onSubmit={handleSubmit}
+    <div className="min-h-screen bg-gray-100 py-10 px-4 text-black flex flex-col">
+      <main className="flex-1">
+        <div className="max-w-5xl mx-auto bg-white rounded-2xl shadow-lg p-8">
+          <h1 className="text-4xl font-bold text-center text-blue-600 mb-8">
+            Student Management System
+          </h1>
+          {!editingStudentId && (
+            <StudentForm
+              form={form}
+              onChange={handleChange}
+              onSubmit={handleSubmit}
+            />
+          )}
+          {editingStudentId !== null && (
+            <UpdateStudentForm
+              form={editForm}
+              studentId={editingStudentId}
+              onChange={handleEditChange}
+              onSubmit={updateStudent}
+              onClose={closeUpdate}
+            />
+          )}
+          <StudentTable
+            students={students}
+            onEdit={handleEdit}
+            onDelete={deleteStudent}
           />
-        )}
-
-        {editingStudentId !== null && (
-          <UpdateStudentForm
-            form={editForm}
-            studentId={editingStudentId}
-            onChange={handleEditChange}
-            onSubmit={updateStudent}
-            onClose={closeUpdate}
-          />
-        )}
-
-        <StudentTable
-          students={students}
-          onEdit={handleEdit}
-          onDelete={deleteStudent}
-        />
-      </div>
+        </div>
+      </main>
+      <Footer />
     </div>
   );
 };

@@ -42,7 +42,8 @@ student-management-system/
 ├── components/
 │   ├── StudentForm.tsx
 │   ├── StudentTable.tsx
-│   └── UpdateStudentForm.tsx
+│   ├── UpdateStudentForm.tsx
+│   └── Footer.tsx
 │
 ├── lib/
 │   └── db.ts
