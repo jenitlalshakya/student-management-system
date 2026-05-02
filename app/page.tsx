@@ -26,7 +26,12 @@ const Home = () => {
     try {
       const response = await fetch("/api/students");
       const data = await response.json();
-      setStudents(Array.isArray(data) ? data : []);
+
+      const sorted = Array.isArray(data)
+        ? [...data].sort((a, b) => a.id - b.id)
+        : [];
+      
+      setStudents(sorted);
     } catch (error) {
       console.error(error);
       setStudents([]);
@@ -36,6 +41,14 @@ const Home = () => {
   useEffect(() => {
     fetchStudents();
   }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = editingStudentId !== null ? "hidden" : "auto";
+
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [editingStudentId]);
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setForm((prev) => ({

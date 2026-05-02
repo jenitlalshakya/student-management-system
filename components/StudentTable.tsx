@@ -1,7 +1,7 @@
 "use client";
 
 import { FaTrash, FaEdit } from "react-icons/fa";
-import { Student } from "../types";
+import { Student } from "@/types";
 
 interface StudentTableProps {
   students: Student[];
