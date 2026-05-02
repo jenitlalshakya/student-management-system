@@ -153,7 +153,7 @@ This project was built to practice:
 
 ## 📸 Screenshots
 
-(Add screenshots here if available)
+![Home](./screenshots/image.png)
 
 ---
 
