@@ -29,24 +29,25 @@ This project demonstrates basic CRUD operations (Create, Read, Update, Delete) w
 ## 📁 Project Structure
 
 ```
-app/
-├── page.tsx
-├── api/
-│   └── students/
-│       ├── route.ts
-│       └── [id]/
-│           └── route.ts
-
-components/
-├── StudentForm.tsx
-├── StudentTable.tsx
-└── UpdateStudentForm.tsx
-
-lib/
-└── db.ts
-
-types/
-└── index.ts
+student-management-system/
+│
+├── app/
+│   ├── page.tsx
+│   └── api/
+│       └── students/
+│           ├── route.ts
+│           └── [id]/
+│               └── route.ts
+│
+├── components/
+│   ├── StudentForm.tsx
+│   ├── StudentTable.tsx
+│   └── UpdateStudentForm.tsx
+│
+├── lib/
+│   └── db.ts
+│
+└── types.ts
 ```
 
 ---
